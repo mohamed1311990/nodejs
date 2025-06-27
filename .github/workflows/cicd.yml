@@ -39,5 +39,4 @@ jobs:
         REPOSITORY: express-app
         IMAGE_TAG: latest
       run: |
-        docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/$REPOSITORY:$IMAGE_TAG .
         docker push ${{ secrets.DOCKERHUB_USERNAME }}/$REPOSITORY:$IMAGE_TAG
