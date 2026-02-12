@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nodejs-dev
+  namespace: argocd
+spec:
+  project: project-dev   #  IMPORTANT (must match AppProject name)
+
+  source:
+    repoURL: https://github.com/mohamed1311990/nodejs.git #repo
+    targetRevision: main  #dev 
+    path: k8s/env-dev  #kubernetes manifests 
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: dev-nodejs
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
