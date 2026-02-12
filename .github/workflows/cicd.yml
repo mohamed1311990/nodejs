@@ -35,4 +35,12 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/express-app:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/nodejs-app:latest
+
+  deploy:
+    runs-on: self-hosted
+    steps:
+    - name: deploy on k8s
+      run: |
+        kubectl apply -f k8s/
+    
