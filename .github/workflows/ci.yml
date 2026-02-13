@@ -40,7 +40,6 @@ jobs:
             ${{ secrets.DOCKER_USERNAME }}/nodejs-app:${{ env.TAG_BUILD }}
 
       
-
   # Argocd is detect the changes on git repo so i don't need the deploy stage 
   #deploy:
   #   runs-on: self-hosted
@@ -48,4 +47,3 @@ jobs:
   #   - name: deploy on k8s
   #     run: |
   #       kubectl apply -f k8s/
-    
