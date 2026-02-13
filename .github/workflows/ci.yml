@@ -21,7 +21,7 @@ jobs:
       run: npm install
       
   build_push:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04-arm
     steps:
 
     - name: Create Image Tag
