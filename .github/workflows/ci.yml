@@ -4,9 +4,8 @@ on:
   workflow_dispatch: {}
 
 jobs:
-  build:
+  setup:
     runs-on: ubuntu-latest
-
     steps:
     - name:  Checkout code
       uses: actions/checkout@v4
@@ -21,7 +20,7 @@ jobs:
     - name:  Install dependencies
       run: npm install
       
-  push:
+  build_push:
     runs-on: ubuntu-latest
     steps:
 
