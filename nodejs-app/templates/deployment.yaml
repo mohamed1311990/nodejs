@@ -16,13 +16,13 @@ spec:
     spec:
       containers:
         - name: my-nodejs-app
-          image: docker.io/mohamed1311990/nodejs-app:latest
-          imagePullPolicy: Always
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}     
           ports:
             - containerPort: 3000
           env:
             - name: NODE_ENV
-              value: "production"
+              value: "dev"
           resources:
             requests:
               memory: "128Mi"
