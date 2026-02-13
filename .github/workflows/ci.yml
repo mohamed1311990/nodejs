@@ -38,6 +38,18 @@ jobs:
           tags: |
             ${{ secrets.DOCKER_USERNAME }}/nodejs-app:${{ env.IMAGE_TAG }}
             ${{ secrets.DOCKER_USERNAME }}/nodejs-app:${{ env.TAG_BUILD }}
+  
+    - name: update helm values with new tag
+      run: |
+          sed -i "s/tag: \".*\"/tag: \"${TAG_BUILD}\"/" charts/nodejs-app/values.yaml
+
+    - name: Commit and push updated values.yaml
+      run: |
+        git config user.name "github-actions"
+        git config user.email "actions@github.com"
+        git add charts/nodejs-app/values.yaml
+        git commit -m "Update image tag to ${TAG_BUILD}"
+        git push
 
       
   # Argocd is detect the changes on git repo so i don't need the deploy stage 
