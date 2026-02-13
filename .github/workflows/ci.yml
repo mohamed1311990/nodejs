@@ -41,7 +41,7 @@ jobs:
   
     - name: update helm values with new tag
       run: |
-          sed -i "s/tag: \".*\"/tag: \"${TAG_BUILD}\"/" charts/nodejs-app/values.yaml
+          sed -i "s/tag: \".*\"/tag: \"${TAG_BUILD}\"/" nodejs-app/charts/values.yaml
 
     - name: Commit and push updated values.yaml
       run: |
