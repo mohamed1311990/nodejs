@@ -4,7 +4,7 @@ on:
   workflow_dispatch: {}
 
 jobs:
-  setup:
+  build:
     runs-on: ubuntu-24.04-arm
     steps:
     - name:  Checkout code
@@ -19,10 +19,6 @@ jobs:
 
     - name:  Install dependencies
       run: npm install
-      
-  build_push:
-    runs-on: ubuntu-24.04-arm
-    steps:
 
     - name: Create Image Tag
       run: |
