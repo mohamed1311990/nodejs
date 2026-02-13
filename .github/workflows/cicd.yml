@@ -37,10 +37,11 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/nodejs-app:latest
 
-  deploy:
-    runs-on: self-hosted
-    steps:
-    - name: deploy on k8s
-      run: |
-        kubectl apply -f k8s/
+  # Argocd is detect the changes on git repo so i don't need the deploy stage 
+  #deploy:
+  #   runs-on: self-hosted
+  #   steps:
+  #   - name: deploy on k8s
+  #     run: |
+  #       kubectl apply -f k8s/
     
